@@ -1,0 +1,36 @@
+<% layout("./index") %>
+
+<div>
+    <button>Создать задачу</button>
+    <form>
+        <label for="status">Статус 
+            <select>
+            </select>
+        </label>
+    </form>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Наименование</th>
+            <th>Статус</th>
+            <th>Автор</th>
+            <th>Исполнитель</th>
+            <th>Дата создания</th>
+            <th>Действия</th>
+        </tr>
+        <% it.data.forEach((task) => { %>
+        <tr>
+            <td><%= task.id%></td>
+            <td><%= task.name%></td>
+            <td><%= task.status%></td>
+            <td><%= task.author%></td>
+            <td><%= task.executor%></td>
+            <td><%= task.createdAt%></td>
+            <td>
+                <button>Изменить</button>
+                <button>Удалить</button>
+            </td>
+        </tr>
+        <% }) %>
+    </table>
+</div>

@@ -1,0 +1,29 @@
+<% layout("../layouts/application", { header: it.t("views.users.header") } ) %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= it.t('views.users.id') %></th>
+      <th><%= it.t('views.users.fullName') %></th>
+      <th><%= it.t('views.users.email') %></th>
+      <th><%= it.t('views.users.createdAt') %></th>
+      <th><%= it.t('views.users.actions') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% it.users.forEach((user) => { %>
+    <tr>
+      <td><%= user.id %></td>
+      <td><%= user.fullname %></td>
+      <td><%= user.email %></td>
+      <td><%= it.formatDate(user.createdAt) %></td>
+      <td>
+        <div class="flex flex-row">
+          <button><%= it.t('views.users.actionsField.edit') %></button>
+          <button><%= it.t('views.users.actionsField.delete') %></button>
+        </div>
+      </td>
+    </tr>
+    <% }) %>
+  </tbody>
+</table>

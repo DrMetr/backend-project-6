@@ -1,0 +1,49 @@
+<% layout("../layouts/application", { header: it.t('views.tasks.header') } ) %>
+
+<button><%= it.t('views.tasks.newButton')%></button>
+<form>
+    <div>
+        <label><%= it.t('views.tasks.search.status') %></label>
+        <select>
+            <% it.statusSearchOptions.forEach((status) => { %>
+                <option><%= status.title %></option>
+            <% }) %>
+        </select>
+        <label><%= it.t('views.tasks.search.author') %></label>
+        <select>
+            <% it.authorSearchOptions.forEach((author) => { %>
+                <option>author.fullname</option>
+            <% }) %>
+        </select>
+        <label><%= it.t('views.tasks.search.mark') %></label>
+        <select>
+            <% it.markSearchOptions.forEach((mark) => { %>
+                <option>mark.title</option>
+            <% }) %>
+        </select>
+    </div>
+</form>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= it.t('views.tasks.id') %></th>
+      <th><%= it.t('views.tasks.createdAt') %></th>
+      <th><%= it.t('views.tasks.actions') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% it.tasks.forEach((task) => { %>
+    <tr>
+      <td><%= task.id %></td>
+      <td><%= task.title %></td>
+      <td><%= it.formatDate(task.createdAt) %></td>
+      <td>
+        <div class="flex flex-row">
+            <button><%= it.t('views.tasks.actionsField.edit') %></button>
+            <button><%= it.t('views.tasks.actionsField.delete') %></button>
+        </div>
+      </td>
+    </tr>
+    <% }) %>
+  </tbody>
+</table>

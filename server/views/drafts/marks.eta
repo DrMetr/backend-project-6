@@ -1,0 +1,24 @@
+<% layout("./index") %>
+
+<div>
+    <button>Создать метку</button>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Наименование</th>
+            <th>Дата создания</th>
+            <th>Действия</th>
+        </tr>
+        <% it.data.forEach((mark) => { %>
+        <tr>
+            <td><%= mark.id%></td>
+            <td><%= mark.name%></td>
+            <td><%= mark.createdAt%></td>
+            <td>
+                <button>Изменить</button>
+                <button>Удалить</button>
+            </td>
+        </tr>
+        <% }) %>
+    </table>
+</div>

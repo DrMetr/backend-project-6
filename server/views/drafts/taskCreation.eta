@@ -1,0 +1,14 @@
+<% layout("./index") %>
+
+<div>
+  <form action="POST">
+    <label for="title">Наименование</label>
+    <input type="text" name="title" placeholder="Наименование" />
+    <label for="description">Описание</label>
+    <input type="text" name="description" placeholder="Описание" />
+    <label for="status">Статус</label>
+    <select></select>
+    <label for="marks">Метки</label>
+    <textarea name="marks" placeholder="Метки"></textarea>
+  </form>
+</div>

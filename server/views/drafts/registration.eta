@@ -1,0 +1,28 @@
+<% layout("./index") %>
+
+<div>
+    <img src="#" alt="Приветствие">
+    <form action="/submit" method="POST">
+
+
+        <% if (it.login === false) { %> 
+            <label for="firstName">Имя</label>
+            <input placeholder="Имя" type="text" name="firstName">
+        <% } else { %> 
+            <label for="lastName">Фамилия</label>
+            <input placeholder="Фамилия" type="text" name="lastName">
+        <% } %>
+        
+        <label for="email">Email</label>
+        <input placeholder="Email" type="email" name="email">
+
+        <label for="password">Пароль</label>
+        <input placeholder="Пароль" type="password" name="password">
+
+        <% if (it.login === false) { %> 
+            <button type="submit">Сохранить</button>
+        <% } else { %> 
+            <button type="submit">Войти</button>
+        <% } %>
+    </form>
+</div>

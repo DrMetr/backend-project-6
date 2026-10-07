@@ -1,0 +1,21 @@
+<% layout("../layouts/application", { header: it.t('views.statuses.header') }) %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= it.t('views.statuses.id') %></th>
+      <th><%= it.t('views.statuses.title') %></th>
+      <th><%= it.t('views.statuses.createdAt') %></th>
+      <th><%= it.t('views.statuses.actions') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% it.statuses.forEach((status) => { %>
+    <tr>
+      <td><%= status.id %></td>
+      <td><%= status.title %></td>
+      <td><%= it.formatDate(status.createdAt) %></td>
+      <td><div class="flex flex-row"><button><%= it.t('views.statuses.actionsField.edit') %></button><button><%= it.t('views.statuses.actionsField.delete') %></div></td>
+    </tr>
+    <% }) %>
+  </tbody>
+</table>

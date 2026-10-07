@@ -1,0 +1,28 @@
+<% layout("../layouts/application", { header: it.t('views.tasks.edit.header') }) %>
+
+<form>
+    <div>
+        <label for="title"><%= it.t('views.tasks.title') %></label>
+        <input type="text" name="title" value="<%= it.task.title %>">
+    </div>
+    <div>
+        <label for="description"><%= it.t('views.tasks.description') %></label>
+        <input type="text" name="description" value="<%= it.task.description %>">
+    </div>
+    <div>
+        <label for="status"><%= it.t('views.tasks.status') %></label>
+        <input type="text" name="status" value="<%= it.task.status %>">
+    </div>
+    <div>
+        <label for="executor"><%= it.t('views.tasks.executor') %></label>
+        <input type="text" name="executor" value="<%= it.task.executor %>">
+    </div>
+    <div>
+        <label for="marks"><%= it.t('views.tasks.') %></label>
+        <select name="marks" size="<% it.tasks.marks.length %>" multiple>
+            <% it.tasks.marks.forEach(mark => { %>
+                <option value="<%= mark.title %>"><%= mark.title %></option>
+            <% }) %>
+        </select>
+    </div>
+</form>

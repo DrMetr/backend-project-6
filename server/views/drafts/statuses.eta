@@ -1,0 +1,24 @@
+<% layout("./index") %>
+
+<div>
+    <button>Создать статус</button>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Наименование</th>
+            <th>Дата создания</th>
+            <th>Действия</th>
+        </tr>
+        <% it.data.forEach((status) => { %>
+        <tr>
+            <td><%= status.id%></td>
+            <td><%= status.name%></td>
+            <td><%= status.createdAt%></td>
+            <td>
+                <button>Изменить</button>
+                <button>Удалить</button>
+            </td>
+        </tr>
+        <% }) %>
+    </table>
+</div>

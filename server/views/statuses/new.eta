@@ -1,0 +1,24 @@
+<% layout("../layouts/application", { header: it.t('views.statuses.header') }) %>
+
+<div>
+    <button><%= it.t('views.statuses.newButton') %></button>
+    <table>
+        <tr>
+            <th><%= it.t('views.statuses.id') %></th>
+            <th><%= it.t('views.statuses.title') %></th>
+            <th><%= it.t('views.statuses.createdAt') %></th>
+            <th><%= it.t('views.statuses.actions') %></th>
+        </tr>
+        <% it.data.forEach((status) => { %>
+        <tr>
+            <td><%= status.id%></td>
+            <td><%= status.name%></td>
+            <td><%= status.createdAt%></td>
+            <td>
+                <%~ include("../mixins/submit", { value: it.t('views.statuses.actionsField.change') }) %>
+                <%~ include("../mixins/submit", { value: it.t('views.statuses.actionsField.delete') }) %>
+            </td>
+        </tr>
+        <% }) %>
+    </table>
+</div>

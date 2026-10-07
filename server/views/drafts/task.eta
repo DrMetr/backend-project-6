@@ -1,0 +1,40 @@
+<% layout("./index") %>
+
+<div>
+  <h1><%= it.data.name%></h1>
+  <div>
+    <p><%= it.data.description%></p>
+    <br>
+    <div>
+        <div class="status"><%= it.data.status %></div>
+        <ul class="marks">
+          <% it.data.marks.forEach((mark) => { %>
+            <li class="mark"><%= mark.title %></li>
+          })
+          
+        </ul>
+        <div>
+            <span class="author">Автор</span>
+            <span class="authorName">
+                <%= it.data.author%>
+            </span>
+        </div>
+        <div>
+            <span class="executor">Исполнитель</span>
+            <span class="executorName">
+                <%= it.data.executor %>
+            </span>
+        </div>
+        <div>
+            <span class="date">Дата создания</span>
+            <span class="createdAt">
+                <%= it.data.createdAt %>
+            </span>
+        </div>
+        <div class="actions">
+            <button>Изменить</button>
+            <button>Удалить</button>
+        </div>
+    </div>
+  </div>
+</div>

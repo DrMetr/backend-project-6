@@ -1,0 +1,21 @@
+<% layout("../layouts/application", { header: it.t('views.marks.header') }) %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= it.t('views.marks.id') %></th>
+      <th><%= it.t('views.marks.title') %></th>
+      <th><%= it.t('views.marks.createdAt') %></th>
+      <th><%= it.t('views.marks.actions') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% it.marks.forEach((mark) => { %>
+    <tr>
+      <td><%= mark.id %></td>
+      <td><%= mark.title %></td>
+      <td><%= it.formatDate(mark.createdAt) %></td>
+      <td><div class="flex flex-row"><button><%= it.t('views.marks.actionsField.edit') %></button><button><%= it.t('views.marks.actionsField.delete') %></div></td>
+    </tr>
+    <% }) %>
+  </tbody>
+</table>

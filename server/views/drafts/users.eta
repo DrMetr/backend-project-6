@@ -1,0 +1,25 @@
+<% layout("./index") %>
+
+<div>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Полное имя</th>
+            <th>Email</th>
+            <th>Дата создания</th>
+            <th>Действия</th>
+        </tr>
+        <% it.data.forEach((user) => { %>
+        <tr>
+            <td><%= user.id%></td>
+            <td><%= user.name%></td>
+            <td><%= user.email%></td>
+            <td><%= user.createdAt%></td>
+            <td>
+                <button>Изменить</button>
+                <button>Удалить</button>
+            </td>
+        </tr>
+        <% }) %>
+    </table>
+</div>

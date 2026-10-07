@@ -1,0 +1,10 @@
+<% layout("../layouts/application", { header: it.t('views.session.new.signIn') }) %>
+<div>
+  <img alt="Welcoming image" src="register.png">
+  <form action="<%= it.route('session') %>" method="post">
+    
+  <%~ include("../mixins/input", { entity: it.user, propertyName: it.t('views.users.new.email'), errors: it.errors, type: 'text' }) %>
+  <%~ include("../mixins/input", { entity: it.user, propertyName: it.t('views.users.new.password'), errors: it.errors, type: 'password' }) %>
+    <%~ include("../mixins/submit", { value: it.t('views.session.new.submit') }) %>
+  </form>
+</div>

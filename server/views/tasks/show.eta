@@ -1,0 +1,17 @@
+<% layout("../layouts/application", { header: it.task.title } ) %>
+
+<div class="flex flex-row">
+    <p><%= it.task.description%></p>
+    <div>
+        <hr class="border-none border-l border-l-[hsla(200,10%,50%,1)] h-screen w-px">
+        <ul class="flex flex-row">
+            <% it.task.marks.forEach(mark => { %>
+                <li><%= mark.title %></li>
+            <% }) %>
+        </ul>
+        <div><span class="text-gray"><%= it.t('view.tasks.author') %></span><span><%= it.task.author %></span></div>
+        <div><span class="text-gray"><%= it.t('view.tasks.executor') %></span><span><%= it.task.executor %></span></div>
+        <div><span class="text-gray"><%= it.t('view.tasks.createdAt') %></span><span><%= it.task.createdAt %></span></div>
+        <div><button><%= it.t('views.actionsField.edit')%></button><button><%= it.t('views.actionsField.delete')%></button></div>
+    </div>
+</div>
