@@ -113,6 +113,7 @@ export default {
         new: {
           header: "Status creation",
           submit: "Save",
+          title: "Title",
         },
         edit: {
           header: "Edit status",

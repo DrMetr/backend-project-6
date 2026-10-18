@@ -2,13 +2,23 @@ import i18next from "i18next";
 
 export default (app) => {
   app
-    .get("/session/new", { name: "newSession" }, (_req, reply) => {
-      const signInForm = {};
-      reply.render("session/new", { signInForm });
-    })
+    .get(
+      "/session/new",
+      {
+        name: "newSession",
+      },
+      (req, reply) => {
+        const signInForm = {};
+        reply.render("session/new", {
+          signInForm,
+        });
+      },
+    )
     .post(
       "/session",
-      { name: "session" },
+      {
+        name: "session",
+      },
       app.fp.authenticate("form", async (req, reply, err, user) => {
         if (err) {
           return app.httpErrors.internalServerError(err);
@@ -16,9 +26,16 @@ export default (app) => {
         if (!user) {
           const signInForm = req.body.data;
           const errors = {
-            email: [{ message: i18next.t("flash.session.create.error") }],
+            email: [
+              {
+                message: i18next.t("flash.session.create.error"),
+              },
+            ],
           };
-          reply.render("session/new", { signInForm, errors });
+          reply.render("session/new", {
+            signInForm,
+            errors,
+          });
           return reply;
         }
         await req.logIn(user);
